@@ -1,0 +1,308 @@
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+
+
+.progress {
+    position: relative;
+    height: 1.5rem !important;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-number {
+    position: absolute;
+    left: 50%;
+    z-index: 5;
+}
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 1em;
+    color: black !important;
+    text-align: center;
+    background-color: #337ab7;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+
+#progressdiv {
+    font-weight: bold;
+    color: black;
+    font-size: .8em;
+    position: absolute;
+}
+
+#uploadForm.is-dragover {
+    background-color: #F7F7F7;
+}
+
+.smallButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5));
+	background:-moz-linear-gradient(top, #79bbff 5%, #378de5 100%);
+	background:-webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
+	background:-o-linear-gradient(top, #79bbff 5%, #378de5 100%);
+	background:-ms-linear-gradient(top, #79bbff 5%, #378de5 100%);
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	
+	font-size:.8em;
+	/*font-weight:bold;*/
+	padding:5px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.smallButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
+	background:-moz-linear-gradient(top, #378de5 5%, #79bbff 100%);
+	background:-webkit-linear-gradient(top, #378de5 5%, #79bbff 100%);
+	background:-o-linear-gradient(top, #378de5 5%, #79bbff 100%);
+	background:-ms-linear-gradient(top, #378de5 5%, #79bbff 100%);
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);
+	background-color:#378de5;
+}
+.smallButton:active {
+	position:relative;
+	top:1px;
+}
+
+.left_part {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.right_part {  
+   float:right;
+   white-space:nowrap;
+}
+
+.button:focus {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #255625
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #0365e7;
+    border-color: #0365e7
+}
+
+.button {
+    color: #fff;
+    background-color: #31abfe;
+    border-color: #4cae4c;
+
+    display: inline-block;
+    /* padding: 6px 12px; */
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+/* Fixes for IE < 8 */
+
+@media screen\9 {
+    .fileinput-button input {
+        filter: alpha(opacity=0);
+        font-size: 100%;
+        height: 100%;
+    }
+}
+
+#result {
+    border: 0px solid gray;
+    font-size: .8em;
+    font-weight: bold;
+}
+
+#triolutions-logo {
+    margin-top: 10px;
+    text-align: right;
+}
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+}
+
+body {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    max-height: 100vh;
+    font-size: .9em;
+}
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.card-signin .card-title {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.card-signin .card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('/img/photo-side.webp');
+    background-size: cover;
+}
+
+.card-signin .card-body {
+    padding: 1.75rem;
+}
+
+.form-signin {
+    width: 100%;
+}
+
+.form-signin .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: .9rem;
+    transition: all 0.2s;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-label-group input {
+    height: auto;
+    border-radius: 1.75rem;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::placeholder {
+    color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 4));
+    padding-bottom: calc(var(--input-padding-y) / 4);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+    padding-top: calc(var(--input-padding-y) / 4);
+    padding-bottom: calc(var(--input-padding-y) / 4);
+    font-size: 11px;
+    color: #777;
+}
+
+.btn-secondary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #33aeff !important;
+    border-color: #33aeff !important;
+}
+
+.mt-5  .my-5 {
+
+    margin-bottom: 1.5rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.mb-5, .my-5 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}

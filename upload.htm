@@ -1,0 +1,166 @@
+<!DOCTYPE HTML lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="AWS S3 Multipart Bulk Files Uploader Software">
+    <meta name="keywords" content="AWS, S3, Multipart">
+    <meta name="author" content="Salman Javeed, Triolutions.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap-filestyle.min.js"></script>
+    <script src="/js/s3upload.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+
+    <title>AWS S3 Multipart Bulk Files Uploader | by Triolutions</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="container">
+
+                    <div class="row" style="text-align: center;">
+
+                        <div style="padding:5px 5px 10px 5px;">
+                            <h1 class="card-title"
+                                style="margin:auto;text-shadow:0px 5px 10px #040404;font-weight:normal;color: white;">
+                                AWS S3 Multipart Bulk Files Uploader
+                            </h1>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="card card-signin flex-row my-5"> -->
+                <div class="card card-signin flex-row">
+                    <div class="card-img-left d-none d-md-flex" id="Main-Card">
+                        <!-- Background image for card set in CSS! -->
+
+                    </div>
+                    <div class="card-body">
+
+                        <fieldset id='uploadForm'>
+                            <form>
+
+                                <!--Bucket Name-->
+                                <div class="form-label-group">
+                                    <input type="text" id="BucketName" name="BucketName" class="form-control"
+                                        placeholder="AWS Bucket Name" value="" required autofocus>
+                                    <label for="BucketName">AWS Bucket Name*</label>
+                                </div>
+
+                                <div id="ShowErrors"></div>
+
+                                <!-- CORS & Pending Delete Buttons-->
+                                <div class="form-label-group">
+                                    <div style="text-align: center;">
+
+                                        <button class="smallButton" id="AbortPending" type="button">Abort
+                                            Pending S3
+                                            Uploads</button>
+
+                                        <button class="smallButton" id="EnableCORS" type="button">Enable
+                                            CORS</button>
+
+                                        <button class="smallButton" id="ResetForm" type="button">Reset form</button>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-label-group">
+                                    <input type="text" id="FolderName" name="FolderName" class="form-control"
+                                        placeholder="Folder in Bucket">
+                                    <label for="FolderName">Folder in Bucket</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="AccessKey" name="Accesskey" class="form-control"
+                                        placeholder="Access Key" value="" required>
+                                    <label for="AccessKey">Access Key*</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="SecretKey" name="SecretKey" class="form-control"
+                                        placeholder="Secret Key" value="" required>
+                                    <label for="SecretKey">Secret Key*</label>
+                                </div>
+
+                                <!-- Get the file to upload -->
+                                <div id="fileInputDiv" class="form-group"
+                                    style="background:rgb(232, 240, 254); padding: 10px; border-radius: .5rem;">
+                                    <input type="file" id="fileInput" multiple="multiple" required>
+                                </div>
+                                <script>
+                                    $('#fileInput').filestyle({
+                                        // input: false,
+                                        text: "Browse",
+                                        badge: true,
+                                        badgename: "btn-danger",
+                                        placeholder: "Drag & Drop File(s) here"
+                                    });
+                                </script>
+                                <div class="form-group ">
+                                    <div id="progress" class="progress ">
+                                        <div class="progress-bar progress-bar-striped active" id="progressbardiv">
+
+                                        </div>
+                                        <div class="progress-number "></div>
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+                                    <div class="col ">
+                                        <button class="btn btn-md btn-danger btn-block text-uppercase "
+                                            id="cancelUpload" type="button" disabled>Cancel</button>
+                                    </div>
+                                    <div class="col ">
+                                        <button class="btn btn-md btn-primary btn-block text-uppercase" type="button"
+                                            id="startUpload">Start Upload</button>
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+                                    <div class="col " id="result">
+                                        Status:
+                                    </div>
+                                </div>
+
+                            </form>
+                        </fieldset>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="img-responsive" id="triolutions-logo " style="text-align: right; ">
+                                    <a href="https://www.triolutions.com " target="_blank ">
+                                        <img src="img/logo-trio.png " style="max-width: 150px; ">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<link rel="stylesheet" href="/css/jquery-confirm.css">
+<script src="/js/jquery-confirm.js"></script>
+<script src="/js/process.js "></script>
+
+</HTML>
